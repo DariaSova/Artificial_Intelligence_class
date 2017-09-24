@@ -89,6 +89,8 @@ public class ProblemMap extends Problem {
 
 
 		//iterative
+		System.out.println("IterativeDeepeningTreeSearch:\t" + search.IterativeDeepeningTreeSearch());
+		System.out.println("IterativeDeepeningGraphSearch:\t" + search.IterativeDeepeningGraphSearch());
 
 	}	
 }
