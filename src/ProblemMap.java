@@ -91,6 +91,12 @@ public class ProblemMap extends Problem {
 		//iterative
 		System.out.println("IterativeDeepeningTreeSearch:\t" + search.IterativeDeepeningTreeSearch());
 		System.out.println("IterativeDeepeningGraphSearch:\t" + search.IterativeDeepeningGraphSearch());
+	
+		//staight-line heuristic
+		System.out.println("AstarTreeSearch:\t" + search.AstarTreeSearch());
+		search.printTree();
+		System.out.println("AstarGraphSearch:\t" + search.AstarGraphSearch());
+		search.printTree();
 
 	}	
 }

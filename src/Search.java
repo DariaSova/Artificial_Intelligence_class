@@ -78,6 +78,28 @@ public class Search {
 	List<Node> node_list; //store all nodes ever generated
 	Node initialNode; //initial node based on initial state
 	//
+
+	public void printTree() {
+		if(node_list==null) return;
+
+		int lastOrder = -1;
+
+		for(int i=0; i<node_list.size(); i++){
+			Node curr = node_list.get(i);
+			double h = problem.h(curr.state);
+			double g = curr.path_cost;
+			double f = h + g;
+			int newOrder = curr.depth;
+			// String tabs = 3*'t';
+			System.out.print('\n');
+			for(int j=0; j< newOrder; j++) {
+				System.out.print('\t');
+			}
+			System.out.print(curr.state + "(g="+g+", h="+h+", f="+f+ ")");
+			if(newOrder!=lastOrder) System.out.print("order="+curr.depth);
+		}
+
+	}
 	
 	private String TreeSearch(Frontier frontier) {
 		cnt = 0; 
