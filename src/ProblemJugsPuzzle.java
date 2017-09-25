@@ -5,6 +5,7 @@ public class ProblemJugsPuzzle extends Problem {
     static final int jug12 = 0;
     static final int jug8 = 1;
     static final int jug3 = 2;
+    static final int ground = 3;
 
     //TODO: check this calculations according to the problem description
     double step_cost(Object fromState, Object toState) { 
@@ -12,8 +13,8 @@ public class ProblemJugsPuzzle extends Problem {
         StateJugsPuzzle prev = (StateJugsPuzzle) fromState;
         StateJugsPuzzle next = (StateJugsPuzzle) toState;
 
-        for(int i=0; i<3;i++){
-            costs+=(next.jugsArray[i] - prev.jugsArray[i]);
+        for(int i=0; i< prev.jugsArray.length; i++){
+            if(next.jugsArray[i] - prev.jugsArray[i] >0) costs+=(next.jugsArray[i] - prev.jugsArray[i]);
         }
 
         return costs;
@@ -163,6 +164,7 @@ public class ProblemJugsPuzzle extends Problem {
         //Pour out 12
         successor_state = new StateJugsPuzzle(jugs_state);
         if (successor_state.jugsArray[jug12]>0){
+            successor_state.jugsArray[ground] += successor_state.jugsArray[jug12]; 
             successor_state.jugsArray[jug12] = 0;
             if(isValid(successor_state)) set.add(successor_state);
         }
@@ -170,6 +172,7 @@ public class ProblemJugsPuzzle extends Problem {
         //Pour out 8
         successor_state = new StateJugsPuzzle(jugs_state);
         if (successor_state.jugsArray[jug8]>0){
+            successor_state.jugsArray[ground] += successor_state.jugsArray[jug8]; 
             successor_state.jugsArray[jug8] = 0;
             if(isValid(successor_state)) set.add(successor_state);
         }
@@ -177,6 +180,7 @@ public class ProblemJugsPuzzle extends Problem {
         //Pour out 3
         successor_state = new StateJugsPuzzle(jugs_state);
         if (successor_state.jugsArray[jug3]>0){
+            successor_state.jugsArray[ground] += successor_state.jugsArray[jug3]; 
             successor_state.jugsArray[jug3] = 0;
             if(isValid(successor_state)) set.add(successor_state);
         }
@@ -189,11 +193,22 @@ public class ProblemJugsPuzzle extends Problem {
     public static void main(String[] args) throws Exception {
 		ProblemJugsPuzzle problem = new ProblemJugsPuzzle();
         System.out.println("Water Jugs Problem Solver:");
-        int [] waterJugs = {0,0,0};
+        //Initial state of Jugs 12,8,3 gallons and the ground respectively
+        int [] waterJugs = {0,0,0,0};
         problem.initialState = new StateJugsPuzzle(waterJugs);
 		Search search  = new Search(problem);
 		
 		System.out.println("BreadthFirstTreeSearch:\t\t" + search.BreadthFirstTreeSearch());
+        System.out.println("BreadthFirstGraphSearch:\t" + search.BreadthFirstGraphSearch());
+        
+        // System.out.println("UniformCostTreeSearch:\t" + search.UniformCostTreeSearch());
+        // System.out.println("UniformCostGraphSearch:\t" + search.UniformCostGraphSearch());
+
+        System.out.println("IterativeDeepeningTreeSearch:\t" + search.IterativeDeepeningTreeSearch());
+        System.out.println("IterativeDeepeningGraphSearch:\t" + search.IterativeDeepeningGraphSearch());
+
+        System.out.println("GreedyBestFirstTreeSearch:\t" + search.GreedyBestFirstTreeSearch());
+        System.out.println("GreedyBestFirstGraphSearch:\t" + search.GreedyBestFirstGraphSearch());
     }
 
 }

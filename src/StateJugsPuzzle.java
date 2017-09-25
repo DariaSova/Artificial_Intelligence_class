@@ -4,8 +4,8 @@ public class StateJugsPuzzle {
     public StateJugsPuzzle(int[] jugs) { this.jugsArray = jugs; }
 
     public StateJugsPuzzle(StateJugsPuzzle state){
-        jugsArray = new int[3];
-        for(int i=0; i<3; i++) 
+        jugsArray = new int[4];
+        for(int i=0; i<4; i++) 
             this.jugsArray[i] = state.jugsArray[i];
     }
 
@@ -17,6 +17,10 @@ public class StateJugsPuzzle {
                 return false;
         
         return true;
+    }
+
+    public int hashCode() {
+        return jugsArray[0]*1000 + jugsArray[1]*100 + jugsArray[2]*10 + jugsArray[3];
     }
 
     public String toString() {

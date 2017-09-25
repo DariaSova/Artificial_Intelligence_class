@@ -35,7 +35,6 @@ public class ProblemCannibals extends Problem {
         if (isValid(successor_state)) set.add(successor_state);
 
         //one cannibal only from right to left
-        //TODO        
         successor_state = new StateCannibals(can_state);
         successor_state.canArray[cannL] += 1;
         successor_state.canArray[cannR] -= 1;
@@ -44,7 +43,6 @@ public class ProblemCannibals extends Problem {
         if (isValid(successor_state)) set.add(successor_state);
         
         //two cannibals from left to right
-        //TODO
         successor_state = new StateCannibals(can_state);
         successor_state.canArray[cannL] -= 2;
         successor_state.canArray[cannR] += 2;
@@ -53,7 +51,6 @@ public class ProblemCannibals extends Problem {
         if (isValid(successor_state)) set.add(successor_state);
         
         //two cannibals from right to left 
-        //TODO        
         successor_state = new StateCannibals(can_state);
         successor_state.canArray[cannL] += 2;
         successor_state.canArray[cannR] -= 2;
@@ -62,7 +59,6 @@ public class ProblemCannibals extends Problem {
         if (isValid(successor_state)) set.add(successor_state);
         
         //one missionary only from left to right 
-        //TODO
         successor_state = new StateCannibals(can_state);
         successor_state.canArray[missL] -= 1;
         successor_state.canArray[missR] += 1;
@@ -71,7 +67,6 @@ public class ProblemCannibals extends Problem {
         if (isValid(successor_state)) set.add(successor_state);
         
         //one missionary only from right to left 
-        //TODO
         successor_state = new StateCannibals(can_state);
         successor_state.canArray[missL] += 1;
         successor_state.canArray[missR] -= 1;
@@ -80,7 +75,6 @@ public class ProblemCannibals extends Problem {
         if (isValid(successor_state)) set.add(successor_state);
         
         //two missionaries from left to right 
-        //TODO
         successor_state = new StateCannibals(can_state);
         successor_state.canArray[missL] -= 2;
         successor_state.canArray[missR] += 2;
@@ -89,7 +83,6 @@ public class ProblemCannibals extends Problem {
         if (isValid(successor_state)) set.add(successor_state);
         
         //two missionaries from right to left 
-        //TODO
         successor_state = new StateCannibals(can_state);
         successor_state.canArray[missL] += 2;
         successor_state.canArray[missR] -= 2;
@@ -98,7 +91,6 @@ public class ProblemCannibals extends Problem {
         if (isValid(successor_state)) set.add(successor_state);
         
         //one cannibal and one missionary from left to right 
-        //TODO
         successor_state = new StateCannibals(can_state);
         successor_state.canArray[cannL] -= 1;
         successor_state.canArray[cannR] += 1;
@@ -109,7 +101,6 @@ public class ProblemCannibals extends Problem {
         if (isValid(successor_state)) set.add(successor_state);
         
         //one cannibal and one missionary from right to left 
-        //TODO 
         successor_state = new StateCannibals(can_state);
         successor_state.canArray[cannL] += 1;
         successor_state.canArray[cannR] -= 1;
@@ -157,19 +148,15 @@ public class ProblemCannibals extends Problem {
 		Search search  = new Search(problem);
 		
 		System.out.println("BreadthFirstTreeSearch:\t\t" + search.BreadthFirstTreeSearch());
-
         System.out.println("BreadthFirstGraphSearch:\t" + search.BreadthFirstGraphSearch());
         
         System.out.println("UniformCostTreeSearch:\t" + search.UniformCostTreeSearch());
-
         System.out.println("UniformCostGraphSearch:\t" + search.UniformCostGraphSearch());
 
         System.out.println("IterativeDeepeningTreeSearch:\t" + search.IterativeDeepeningTreeSearch());
-
         System.out.println("IterativeDeepeningGraphSearch:\t" + search.IterativeDeepeningGraphSearch());
 
         System.out.println("GreedyBestFirstTreeSearch:\t" + search.GreedyBestFirstTreeSearch());
-
         System.out.println("GreedyBestFirstGraphSearch:\t" + search.GreedyBestFirstGraphSearch());
 
     }
