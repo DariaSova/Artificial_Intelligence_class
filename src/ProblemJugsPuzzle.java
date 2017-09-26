@@ -68,7 +68,6 @@ public class ProblemJugsPuzzle extends Problem {
             successor_state.jugsArray[jug8] += amount;
             if (isValid(successor_state)) set.add(successor_state);
         }
-        if(isValid(successor_state)) set.add(successor_state);
 
 
         //Fill 3 galons jug
@@ -78,88 +77,97 @@ public class ProblemJugsPuzzle extends Problem {
             successor_state.jugsArray[jug3] += amount;
             if (isValid(successor_state)) set.add(successor_state);
         }
-        if(isValid(successor_state)) set.add(successor_state);
 
 
         //Pour 12 -> 8
         successor_state = new StateJugsPuzzle(jugs_state);
         level12 = successor_state.jugsArray[jug12];
         left8 = 8 - successor_state.jugsArray[jug8];
-        if(level12 <= left8) {
-            successor_state.jugsArray[jug12] -= level12;
-            successor_state.jugsArray[jug8] += level12;
-        } else {
-            successor_state.jugsArray[jug12] -= left8;
-            successor_state.jugsArray[jug8] += left8;
+        if(level12 > 0 && left8 >0) {
+            if (level12 <= left8) {
+                successor_state.jugsArray[jug12] -= level12;
+                successor_state.jugsArray[jug8] += level12;
+            } else {
+                successor_state.jugsArray[jug12] -= left8;
+                successor_state.jugsArray[jug8] += left8;
+            }
+            if(isValid(successor_state)) set.add(successor_state);
         }
-        if(isValid(successor_state)) set.add(successor_state);
-
 
         //Pour 12 -> 3
         successor_state = new StateJugsPuzzle(jugs_state);
         level12 = successor_state.jugsArray[jug12];
         left3 = 3 - successor_state.jugsArray[jug3];
-        if(level12 <= left3) {
-            successor_state.jugsArray[jug12] -= level12;
-            successor_state.jugsArray[jug3] += level12;
-        } else {
-            successor_state.jugsArray[jug12] -= left3;
-            successor_state.jugsArray[jug3] += left3;
+        if (level12 > 0 && left3 >0) {
+            if (level12 <= left3) {
+                successor_state.jugsArray[jug12] -= level12;
+                successor_state.jugsArray[jug3] += level12;
+            } else {
+                successor_state.jugsArray[jug12] -= left3;
+                successor_state.jugsArray[jug3] += left3;
+            }
+            if (isValid(successor_state)) set.add(successor_state);
         }
-        if(isValid(successor_state)) set.add(successor_state);
 
         //Pour 8->3
         successor_state = new StateJugsPuzzle(jugs_state);
         level8 = successor_state.jugsArray[jug8];
         left3 = 3 - successor_state.jugsArray[jug3];
-        if(level8 <= left3) {
-            successor_state.jugsArray[jug8] -= level8;
-            successor_state.jugsArray[jug3] += level8;
-        } else {
-            successor_state.jugsArray[jug8] -= left3;
-            successor_state.jugsArray[jug3] += left3;
+        if (level8 > 0 && left3 > 0) {
+            if (level8 <= left3) {
+                successor_state.jugsArray[jug8] -= level8;
+                successor_state.jugsArray[jug3] += level8;
+            } else {
+                successor_state.jugsArray[jug8] -= left3;
+                successor_state.jugsArray[jug3] += left3;
+            }
+            if(isValid(successor_state)) set.add(successor_state);
         }
-        if(isValid(successor_state)) set.add(successor_state);
 
         //Pour 8->12
         successor_state = new StateJugsPuzzle(jugs_state);
         level8 = successor_state.jugsArray[jug8];
         left12 = 12 - successor_state.jugsArray[jug12];
-        if(level8 <= left12) {
-            successor_state.jugsArray[jug8] -= level8;
-            successor_state.jugsArray[jug12] += level8;
-        } else {
-            successor_state.jugsArray[jug8] -= left12;
-            successor_state.jugsArray[jug12] += left12;
+        if (level8 > 0 && left12 > 0) {
+            if (level8 <= left12) {
+                successor_state.jugsArray[jug8] -= level8;
+                successor_state.jugsArray[jug12] += level8;
+            } else {
+                successor_state.jugsArray[jug8] -= left12;
+                successor_state.jugsArray[jug12] += left12;
+            }
+            if(isValid(successor_state)) set.add(successor_state);
         }
-        if(isValid(successor_state)) set.add(successor_state);
 
         //Pour 3->8
         successor_state = new StateJugsPuzzle(jugs_state);
         level3 = successor_state.jugsArray[jug3];
         left8 = 8 - successor_state.jugsArray[jug8];
-        if(level3 <= left8) {
-            successor_state.jugsArray[jug3] -= level3;
-            successor_state.jugsArray[jug8] += level3;
-        } else {
-            successor_state.jugsArray[jug3] -= left8;
-            successor_state.jugsArray[jug8] += left8;
+        if (level3 > 0 && left8 > 0) {
+            if (level3 != 0 && level3 <= left8) {
+                successor_state.jugsArray[jug3] -= level3;
+                successor_state.jugsArray[jug8] += level3;
+            } else {
+                successor_state.jugsArray[jug3] -= left8;
+                successor_state.jugsArray[jug8] += left8;
+            }
+            if(isValid(successor_state)) set.add(successor_state);
         }
-        if(isValid(successor_state)) set.add(successor_state);
 
         //Pour 3->12
         successor_state = new StateJugsPuzzle(jugs_state);
         level3 = successor_state.jugsArray[jug3];
         left12 = 12 - successor_state.jugsArray[jug12];
-        if(level3 <= left12) {
-            successor_state.jugsArray[jug3] -= level3;
-            successor_state.jugsArray[jug12] += level3;
-        } else {
-            successor_state.jugsArray[jug3] -= left12;
-            successor_state.jugsArray[jug12] += left12;
+        if (level3 > 0 && left12 > 0) {
+            if (level3 != 0 && level3 <= left12) {
+                successor_state.jugsArray[jug3] -= level3;
+                successor_state.jugsArray[jug12] += level3;
+            } else {
+                successor_state.jugsArray[jug3] -= left12;
+                successor_state.jugsArray[jug12] += left12;
+            }
+            if(isValid(successor_state)) set.add(successor_state);
         }
-        if(isValid(successor_state)) set.add(successor_state);
-
 
         //Pour out 12
         successor_state = new StateJugsPuzzle(jugs_state);
@@ -201,8 +209,8 @@ public class ProblemJugsPuzzle extends Problem {
 		System.out.println("BreadthFirstTreeSearch:\t\t" + search.BreadthFirstTreeSearch());
         System.out.println("BreadthFirstGraphSearch:\t" + search.BreadthFirstGraphSearch());
         
-        // System.out.println("UniformCostTreeSearch:\t" + search.UniformCostTreeSearch());
-        // System.out.println("UniformCostGraphSearch:\t" + search.UniformCostGraphSearch());
+        System.out.println("UniformCostTreeSearch:\t" + search.UniformCostTreeSearch());
+        System.out.println("UniformCostGraphSearch:\t" + search.UniformCostGraphSearch());
 
         System.out.println("IterativeDeepeningTreeSearch:\t" + search.IterativeDeepeningTreeSearch());
         System.out.println("IterativeDeepeningGraphSearch:\t" + search.IterativeDeepeningGraphSearch());

@@ -12,9 +12,10 @@ public class StateJugsPuzzle {
     public boolean equals(Object obj) {
         StateJugsPuzzle state = (StateJugsPuzzle) obj;
         
-        for (int i=0; i<this.jugsArray.length; i++)
+        for (int i=0; i<this.jugsArray.length; i++) {
             if (this.jugsArray[i] != state.jugsArray[i])
                 return false;
+        }
         
         return true;
     }
