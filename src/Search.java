@@ -98,6 +98,7 @@ public class Search {
 			System.out.print(curr.state + "(g="+g+", h="+h+", f="+f+ ")");
 			if(newOrder!=lastOrder) System.out.print("order="+curr.depth);
 		}
+		System.out.println('\n');
 
 	}
 	

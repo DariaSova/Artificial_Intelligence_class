@@ -206,17 +206,23 @@ public class ProblemJugsPuzzle extends Problem {
         problem.initialState = new StateJugsPuzzle(waterJugs);
 		Search search  = new Search(problem);
 		
+        System.out.println("\nQ4.\t Water Jugs Problem: ==========\n");
+        System.out.println("Note the state array indicates how much water is in 12g 8g 3g jugs and how much was poured into the ground");
+
 		System.out.println("BreadthFirstTreeSearch:\t\t" + search.BreadthFirstTreeSearch());
-        System.out.println("BreadthFirstGraphSearch:\t" + search.BreadthFirstGraphSearch());
+        System.out.println("\nBreadthFirstGraphSearch:\t" + search.BreadthFirstGraphSearch());
         
-        System.out.println("UniformCostTreeSearch:\t" + search.UniformCostTreeSearch());
-        System.out.println("UniformCostGraphSearch:\t" + search.UniformCostGraphSearch());
+		System.out.println("\nDepthFirstTreeSearch:\t" + search.DepthFirstTreeSearch());
+        System.out.println("\nDepthFirstGraphSearch:\t" + search.DepthFirstGraphSearch());
+        
+        System.out.println("\nUniformCostTreeSearch:\t" + search.UniformCostTreeSearch());
+        System.out.println("\nUniformCostGraphSearch:\t" + search.UniformCostGraphSearch());
 
-        System.out.println("IterativeDeepeningTreeSearch:\t" + search.IterativeDeepeningTreeSearch());
-        System.out.println("IterativeDeepeningGraphSearch:\t" + search.IterativeDeepeningGraphSearch());
+        System.out.println("\nIterativeDeepeningTreeSearch:\t" + search.IterativeDeepeningTreeSearch());
+        System.out.println("\nIterativeDeepeningGraphSearch:\t" + search.IterativeDeepeningGraphSearch());
 
-        System.out.println("GreedyBestFirstTreeSearch:\t" + search.GreedyBestFirstTreeSearch());
-        System.out.println("GreedyBestFirstGraphSearch:\t" + search.GreedyBestFirstGraphSearch());
+        // System.out.println("GreedyBestFirstTreeSearch:\t" + search.GreedyBestFirstTreeSearch());
+        // System.out.println("GreedyBestFirstGraphSearch:\t" + search.GreedyBestFirstGraphSearch());
     }
 
 }

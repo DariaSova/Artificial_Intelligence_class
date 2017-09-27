@@ -137,7 +137,12 @@ public class ProblemCannibals extends Problem {
 	
 	double step_cost(Object fromState, Object toState) { return 1; }
 
-	public double h(Object state) { return 0; }
+    // public double h(Object state) { return 0; }
+    //Add heuristic function
+	public double h(Object state) { 
+        StateCannibals st = (StateCannibals) state;
+        return st.canArray[cannL] + st.canArray[missL];
+    }
 
 
 	public static void main(String[] args) throws Exception {
@@ -147,17 +152,22 @@ public class ProblemCannibals extends Problem {
 		
 		Search search  = new Search(problem);
 		
-		System.out.println("BreadthFirstTreeSearch:\t\t" + search.BreadthFirstTreeSearch());
-        System.out.println("BreadthFirstGraphSearch:\t" + search.BreadthFirstGraphSearch());
+        System.out.println("\nQ5.\t Cannibals-Missionaries Problem with Heuristic function: ==========\n");
         
-        System.out.println("UniformCostTreeSearch:\t" + search.UniformCostTreeSearch());
-        System.out.println("UniformCostGraphSearch:\t" + search.UniformCostGraphSearch());
+		System.out.println("BreadthFirstTreeSearch:\t\t" + search.BreadthFirstTreeSearch());
+        System.out.println("\nBreadthFirstGraphSearch:\t" + search.BreadthFirstGraphSearch());
+        
+		System.out.println("\nDepthFirstTreeSearch:\t" + search.DepthFirstTreeSearch());
+        System.out.println("\nDepthFirstGraphSearch:\t" + search.DepthFirstGraphSearch());
+        
+        System.out.println("\nUniformCostTreeSearch:\t" + search.UniformCostTreeSearch());
+        System.out.println("\nUniformCostGraphSearch:\t" + search.UniformCostGraphSearch());
 
-        System.out.println("IterativeDeepeningTreeSearch:\t" + search.IterativeDeepeningTreeSearch());
-        System.out.println("IterativeDeepeningGraphSearch:\t" + search.IterativeDeepeningGraphSearch());
+        System.out.println("\nIterativeDeepeningTreeSearch:\t" + search.IterativeDeepeningTreeSearch());
+        System.out.println("\nIterativeDeepeningGraphSearch:\t" + search.IterativeDeepeningGraphSearch());
 
-        System.out.println("GreedyBestFirstTreeSearch:\t" + search.GreedyBestFirstTreeSearch());
-        System.out.println("GreedyBestFirstGraphSearch:\t" + search.GreedyBestFirstGraphSearch());
+        // System.out.println("\nGreedyBestFirstTreeSearch:\t" + search.GreedyBestFirstTreeSearch());
+        // System.out.println("\nGreedyBestFirstGraphSearch:\t" + search.GreedyBestFirstGraphSearch());
 
     }
 }

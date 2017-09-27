@@ -78,6 +78,7 @@ public class ProblemMap extends Problem {
 		
 		Search search  = new Search(problem);
 		
+		System.out.println("Q1.\t Map Problem: ==========\n");
 		System.out.println("BreadthFirstTreeSearch:\t\t" + search.BreadthFirstTreeSearch());
 		System.out.println("BreadthFirstGraphSearch:\t" + search.BreadthFirstGraphSearch());
 
@@ -92,6 +93,7 @@ public class ProblemMap extends Problem {
 		System.out.println("IterativeDeepeningTreeSearch:\t" + search.IterativeDeepeningTreeSearch());
 		System.out.println("IterativeDeepeningGraphSearch:\t" + search.IterativeDeepeningGraphSearch());
 	
+		System.out.println("\nQ2.\t Map Problem: Heuristic Function and Printed Trees ==========\n");
 		//staight-line heuristic
 		System.out.println("AstarTreeSearch:\t" + search.AstarTreeSearch());
 		search.printTree();
