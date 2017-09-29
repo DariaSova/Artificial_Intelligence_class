@@ -139,9 +139,10 @@ public class ProblemCannibals extends Problem {
 
     // public double h(Object state) { return 0; }
     //Add heuristic function
+    // 2n-3
 	public double h(Object state) { 
         StateCannibals st = (StateCannibals) state;
-        return st.canArray[cannL] + st.canArray[missL];
+        return 2*(st.canArray[cannL] + st.canArray[missL])-3;
     }
 
 
@@ -154,6 +155,9 @@ public class ProblemCannibals extends Problem {
 		
         System.out.println("\nQ5.\t Cannibals-Missionaries Problem with Heuristic function: ==========\n");
         
+        System.out.println("\nGreedyBestFirstTreeSearch:\t" + search.GreedyBestFirstTreeSearch());
+        System.out.println("\nGreedyBestFirstGraphSearch:\t" + search.GreedyBestFirstGraphSearch());
+
 		System.out.println("BreadthFirstTreeSearch:\t\t" + search.BreadthFirstTreeSearch());
         System.out.println("\nBreadthFirstGraphSearch:\t" + search.BreadthFirstGraphSearch());
         
@@ -165,9 +169,6 @@ public class ProblemCannibals extends Problem {
 
         System.out.println("\nIterativeDeepeningTreeSearch:\t" + search.IterativeDeepeningTreeSearch());
         System.out.println("\nIterativeDeepeningGraphSearch:\t" + search.IterativeDeepeningGraphSearch());
-
-        // System.out.println("\nGreedyBestFirstTreeSearch:\t" + search.GreedyBestFirstTreeSearch());
-        // System.out.println("\nGreedyBestFirstGraphSearch:\t" + search.GreedyBestFirstGraphSearch());
 
     }
 }

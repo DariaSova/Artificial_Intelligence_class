@@ -77,42 +77,38 @@ public class Search {
 	int cnt; //count expansions
 	List<Node> node_list; //store all nodes ever generated
 	Node initialNode; //initial node based on initial state
-	//
 
-	public void printTree() {
-		if(node_list==null) return;
-
-		int lastOrder = -1;
-
-		for(int i=0; i<node_list.size(); i++){
-			Node curr = node_list.get(i);
-			double h = problem.h(curr.state);
-			double g = curr.path_cost;
-			double f = h + g;
-			int newOrder = curr.depth;
-			// String tabs = 3*'t';
-			System.out.print('\n');
-			for(int j=0; j< newOrder; j++) {
-				System.out.print('\t');
-			}
-			System.out.print(curr.state + "(g="+g+", h="+h+", f="+f+ ")");
-			if(newOrder!=lastOrder) System.out.print("order="+curr.depth);
-		}
+	public void printTree(Node root) {
+		Node curr = root;
+		double h = problem.h(curr.state);
+		double g = curr.path_cost;
+		double f = h + g;
 		System.out.println('\n');
+		for (int i = 0; i < root.depth; i++) {
+			System.out.print('\t');
+		}
+
+		System.out.print(curr.state + "(g=" + g + ", h=" + h + ", f=" + f + ")");
+		System.out.print("order=" + curr.depth);
+
+		for (Node n : node_list) {
+			if (n.parent_node == root)
+				printTree(n);
+		}
 
 	}
-	
+
 	private String TreeSearch(Frontier frontier) {
-		cnt = 0; 
+		cnt = 0;
 		node_list = new ArrayList<Node>();
-		
-		initialNode = MakeNode(problem.initialState); 
-		node_list.add( initialNode );
-		
-		frontier.insert( initialNode );
-		while(true) {
-			
-			if(frontier.isEmpty())
+
+		initialNode = MakeNode(problem.initialState);
+		node_list.add(initialNode);
+
+		frontier.insert(initialNode);
+		while (true) {
+
+			if (frontier.isEmpty())
 				return null;
 			
 			Node node = frontier.remove();

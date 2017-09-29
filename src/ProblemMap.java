@@ -96,9 +96,9 @@ public class ProblemMap extends Problem {
 		System.out.println("\nQ2.\t Map Problem: Heuristic Function and Printed Trees ==========\n");
 		//staight-line heuristic
 		System.out.println("AstarTreeSearch:\t" + search.AstarTreeSearch());
-		search.printTree();
+		search.printTree(search.initialNode);
 		System.out.println("AstarGraphSearch:\t" + search.AstarGraphSearch());
-		search.printTree();
+		search.printTree(search.initialNode);
 
 	}	
 }
