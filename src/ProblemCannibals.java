@@ -158,7 +158,10 @@ public class ProblemCannibals extends Problem {
         System.out.println("\nGreedyBestFirstTreeSearch:\t" + search.GreedyBestFirstTreeSearch());
         System.out.println("\nGreedyBestFirstGraphSearch:\t" + search.GreedyBestFirstGraphSearch());
 
-		System.out.println("BreadthFirstTreeSearch:\t\t" + search.BreadthFirstTreeSearch());
+        System.out.println("\nAstarTreeSearch:\t" + search.AstarTreeSearch());
+        System.out.println("\nAstarGraphSearch:\t" + search.AstarGraphSearch());
+
+		System.out.println("\nBreadthFirstTreeSearch:\t\t" + search.BreadthFirstTreeSearch());
         System.out.println("\nBreadthFirstGraphSearch:\t" + search.BreadthFirstGraphSearch());
         
 		System.out.println("\nDepthFirstTreeSearch:\t" + search.DepthFirstTreeSearch());
