@@ -59,6 +59,7 @@ public class NimGame extends Game {
         int depth = 13;
 
         Scanner sc = new Scanner(System.in);
+        // Nim.currentState.player =0; //let computer start
         System.out.println(Nim.currentState);
 
         while(true){
